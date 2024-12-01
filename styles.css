@@ -1,55 +1,87 @@
+
+  /* General Reset */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg,pink, magenta);
+}
+
+/* Calculator Container */
+.calculator {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+/* Display */
+#display {
+  width: 100%;
+  height: 50px;
+  border: 2px solid gray;
+  border-radius: 8px;
+  font-size: 1.5em;
+  padding: 2px;
+  text-align: right;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+#display:focus {
+  outline: none;
+  transform: scale(1.02);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+}
+
+button:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Special Buttons */
+button:hover {
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+  color: white;
+}
+
+/* Animations */
+@keyframes pop {
+  0% {
+    transform: scale(0.9);
   }
-  
-  .calculator {
-    width: 300px;
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  50% {
+    transform: scale(1.1);
   }
-  
-  #display {
-    width: 100%;
-    height: 50px;
-    font-size: 1.5rem;
-    text-align: right;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+  100% {
+    transform: scale(1);
   }
-  
-  .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-  
-  button {
-    height: 50px;
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 5px;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #0056b3;
-  }
-  
-  button:active {
-    background: #003f7f;
-  }
-  
+}
+
+button:focus {
+  animation: pop 0.3s ease-in-out;
+}
